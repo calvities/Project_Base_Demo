@@ -11,6 +11,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.calvities.cl.mapper.UserMapper;
 import com.calvities.cl.service.UserService;
 
+import javax.naming.Name;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author CL
  * @Date 2020/12/25
@@ -53,6 +57,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
 
         return baseMapper.selectPage(userPage, userQueryWrapper);
+    }
+
+    /**
+     * 根据关键字查询用户列表
+     *
+     * @param key 关键字
+     * @return 用户姓名
+     */
+    @Override
+    public List<Map<String, Object>> selectNameList(String key) {
+
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("name");
+        queryWrapper.like("name", key);
+        List<Map<String, Object>> list = baseMapper.selectMaps(queryWrapper);
+
+        return list;
     }
 }
 

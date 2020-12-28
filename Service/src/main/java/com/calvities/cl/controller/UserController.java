@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author CL
@@ -100,6 +101,14 @@ public class UserController {
         }else {
             return Result.error().message("删除失败");
         }
+    }
+
+    @GetMapping("/list/name/{key}")
+    @ApiOperation(value = "跟关键字查询用户名称列表")
+    public Result selectNameListByKey(@ApiParam(value = "关键字",required = true) @PathVariable String key){
+
+        List<Map<String, Object>> nameList = userService.selectNameList(key);
+        return Result.ok().data("nameList",nameList);
     }
 
 }
