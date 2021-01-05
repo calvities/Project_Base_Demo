@@ -13,10 +13,10 @@ spring:
     password: cl520.
     # 使用Druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    jackson:
-      #返回json的全局时间格式
-      date-format: yyyy-MM-dd HH:mm:ss
-      time-zone: GMT+8
+  jackson:
+    #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 #mybatis日志
 mybatis-plus:
