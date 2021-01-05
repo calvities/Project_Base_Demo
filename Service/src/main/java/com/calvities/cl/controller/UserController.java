@@ -31,7 +31,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("list/{page}/{limit}")
-    @ApiOperation(value = "分页条件查询所有讲师列表")
+    @ApiOperation(value = "分页条件查询所有用户列表")
     public Result listPage(@ApiParam(value = "当前页码", required = true) @PathVariable Long page,
                            @ApiParam(value = "每页记录数", required = true) @PathVariable Long limit,
                            @ApiParam("查询对象") UserQueryVO userQueryVO){
